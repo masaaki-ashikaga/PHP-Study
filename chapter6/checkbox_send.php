@@ -2,7 +2,7 @@
   <body>
     <h1>チェックボックスを使ったフォーム</h1>
     <p>好きな色を洗濯して下さい。（複数選択可）</p>
-    <form action="checkbox_receice.php" method="POST">
+    <form action="checkbox_receive.php" method="POST">
       <p>
         <input type="checkbox" name="colors[]" value="青">青
         <input type="checkbox" name="colors[]" value="赤">赤
