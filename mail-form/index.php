@@ -13,25 +13,23 @@ ini_set('display_errors', 'On'); //ブラウザ画面にエラーを表示
 //Session開始
 session_start();
 
+//未入力チェックを外部ファイルから読み込み
+//POSTしたらif文の中の処理を実行
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-  //未入力チェック
   $name = $_POST['name'];
   $mail = $_POST['mail'];
 
   require('validation.php');
 
   if(empty($error)){
-    
     header('Location: confirm.php');
-
+    
     $_SESSION['name'] = $name;
     $_SESSION['mail'] = $mail;
 
     exit();
   }
-  
 }
-
 ?>
 
 
@@ -58,7 +56,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         <label>メールアドレス</label>
         <input type="text" name="mail" class="form-control"> 
         <p class="text-danger"><?php if(!empty($error['mail'])) echo $error['mail'] ?></p>
-
       </div>
       <button type="submit" class="btn btn-primary">確認する</button>
     </form>

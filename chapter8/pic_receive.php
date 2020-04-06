@@ -10,27 +10,26 @@ if($type !== IMAGETYPE_JPEG && $type !== IMAGETYPE_PNG){
 }else{
   $extension = pathinfo($img['name'], PATHINFO_EXTENSION);
   $new_img = md5(uniqid(mt_rand(), true)).'.'.$extension;
-  move_uploaded_file($img['tmp_name'], './img/' .$new_img);
+  move_uploaded_file($img['tmp_name'], './img/'.$new_img);
 }
-
-move_uploaded_file($img['tmp_name'], './img/'.$img['name']);
 ?>
 
 <html>
-  <head>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <h1>受信ページ</h1>
-    <?php if(count($err) > 0){
-      foreach($err as $row){
-        echo '<p>'.$row.'</p>';
-      }
-      echo '<a href="./sample8-3_send.php>戻る</a>';
-    }else{
-      ?>
-      <div><img src="http://localhost/chapter8/img/<?php echo $img['name'];?>"></div>
-    <?php
-    }?>
-  </body>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<h1>受信ページ</h1>
+<?php
+if(count($err) > 0){
+  foreach($err as $row){
+    echo '<p>'.$row.'</p>';
+  }
+  echo '<a href="./pic_send.php">戻る</a>';
+}else{
+  ?>
+<div><img src="http://localhost/chapter8/img/<?php echo $new_img;?>"></div>
+<?php } ?>
+</body>
+
 </html>

@@ -10,6 +10,8 @@ session_start();
 function h($str){
   return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
+
+
 ?>
 
 
@@ -28,12 +30,12 @@ function h($str){
     <form action="" method="POST">
       <div calss="form-group">
         <label>お名前</label>
-        <p><?php echo h($_SESSION['name']) ?></p>
+        <p><?php echo h($_SESSION['name']); ?></p>
       </div>
 
       <div class="form-group">
         <label>メールアドレス</label>
-        <p><?php echo h($_SESSION['mail']) ?></p>
+        <p><?php echo h($_SESSION['mail']); ?></p>
       </div>
       <button type="submit" onclick="history.back()" class="btn btn-primary">戻る</button>
       <button type="submit" class="btn btn-primary">送信する</button>
