@@ -12,7 +12,11 @@ function get_post($key){
 function check_words($word, $length){
   if(mb_strlen($word) === 0){
     return FALSE;
-  }else if
+  }elseif(mb_strlen($word) > $length){
+    return FALSE;
+  }else{
+    return TRUE;
+  }
 }
 
 ?>
