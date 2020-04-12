@@ -1,0 +1,10 @@
+[12-Apr-2020 06:41:35 UTC] PHP Notice:  Undefined index:  in /Applications/MAMP/htdocs/code-creater/get_post/confirm.php on line 23
+[12-Apr-2020 06:41:47 UTC] PHP Notice:  Undefined index: name in /Applications/MAMP/htdocs/code-creater/get_post/confirm.php on line 23
+[12-Apr-2020 06:41:50 UTC] PHP Notice:  Undefined index: name in /Applications/MAMP/htdocs/code-creater/get_post/confirm.php on line 23
+[12-Apr-2020 06:41:51 UTC] PHP Notice:  Undefined index: name in /Applications/MAMP/htdocs/code-creater/get_post/confirm.php on line 23
+[12-Apr-2020 07:04:07 UTC] PHP Notice:  Undefined variable: gender in /Applications/MAMP/htdocs/code-creater/get_post/confirm.php on line 33
+[12-Apr-2020 08:10:55 UTC] PHP Notice:  Undefined variable: POST in /Applications/MAMP/htdocs/code-creater/get_post/confirm.php on line 36
+[12-Apr-2020 08:12:05 UTC] PHP Notice:  Undefined variable: error in /Applications/MAMP/htdocs/code-creater/get_post/confirm.php on line 37
+[12-Apr-2020 08:18:53 UTC] PHP Notice:  Undefined index: name in /Applications/MAMP/htdocs/code-creater/get_post/confirm.php on line 44
+[12-Apr-2020 08:23:32 UTC] PHP Notice:  Undefined variable: error in /Applications/MAMP/htdocs/code-creater/get_post/confirm.php on line 45
+[12-Apr-2020 08:23:32 UTC] PHP Notice:  Undefined variable: error in /Applications/MAMP/htdocs/code-creater/get_post/confirm.php on line 50

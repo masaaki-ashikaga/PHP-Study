@@ -19,4 +19,6 @@ function check_words($word, $length){
   }
 }
 
+
+
 ?>
