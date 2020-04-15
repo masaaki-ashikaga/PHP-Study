@@ -9,6 +9,7 @@ function get_post($key){
     return $var;
   }
 }
+
 function check_words($word, $length){
   if(mb_strlen($word) === 0){
     return FALSE;
@@ -19,13 +20,14 @@ function check_words($word, $length){
   }
 }
 
-function get_db_Connect(){
+function get_db_connect(){
   try{
     $dsn = 'mysql:dbname=sample;host=localhost;charset=utf8';
     $user = 'root';
     $password ='root';
 
     $dbh = new PDO($dsn, $user, $password);
+
   }catch(PDOException $e){
     echo ($e->getMessage());
     die();
@@ -34,7 +36,8 @@ function get_db_Connect(){
   return $dbh;
 }
 
-function insert_comment($dbh,$name,$comment){
+
+function insert_comment($dbh, $name, $comment){
 
 $date = date('Y-m-d H:i:s');
 $sql = "INSERT INTO board(name, comment, created) VALUE(:name, :comment, '{$date}')";
@@ -47,7 +50,6 @@ if(!$stmt->execute()){
 }
 
 function select_comments($dbh){
-  $data = [];
   $sql = "SELECT name, comment, created FROM board";
   $stmt = $dbh->prepare($sql);
   $stmt->execute();
