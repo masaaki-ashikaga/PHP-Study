@@ -22,14 +22,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
   }elseif(!check_words($email, 100)){
     $errs['email'] = 'メールアドレスは必須、100文字以内です。';
   }
-
   if(!check_words($password, 50)){
     $errs['password'] = 'パスワードは必須、50文字以内です。';
   }
-
   if(empty($errs)){
     if(insert_member_data($dbh, $name, $email, $password)){
-      header('Location:' . SITE_URL . 'login.php');
+      header('Location: '.SITE_URL.'login.php');
       exit;
     }
     $errs['password'] = '登録に失敗しました。';
@@ -37,5 +35,3 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 }
 
 include_once('./views/signup_view.php');
-
-?>
