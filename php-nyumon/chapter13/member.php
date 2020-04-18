@@ -6,8 +6,8 @@ require_once('./helpers/extra_helper.php');
 
 session_start();
 
-if(!empty($_SESSION['member'])){
-  header('Location: ' . SITE_URL . '/login.php');
+if(empty($_SESSION['member'])){
+  header('Location: ' . SITE_URL . 'login.php');
   exit;
 }
 
@@ -16,5 +16,7 @@ $dbh = get_db_connect();
 $members = array();
 $members = select_members($dbh);
 
-include_once('./views/login_view.php');
+
+
+include_once('./views/member_view.php');
 ?>

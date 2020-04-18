@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
   }
   if(empty($errs)){
     if(insert_member_data($dbh, $name, $email, $password)){
-      header('Location: '.SITE_URL.'login.php');
+      header('Location: '.SITE_URL.'/login.php');
       exit;
     }
     $errs['password'] = '登録に失敗しました。';

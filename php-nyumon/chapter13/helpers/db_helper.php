@@ -58,5 +58,15 @@ function select_member($dbh, $email, $password){
   }
 }
 
+function select_members($dbh){
+  $sql = "SELECT name FROM members";
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute();
+  while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+    $data[] = $row;
+  }
+  return $data;
+}
+
 
 ?>

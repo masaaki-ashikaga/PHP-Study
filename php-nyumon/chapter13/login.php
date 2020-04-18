@@ -7,7 +7,7 @@ require_once('./helpers/extra_helper.php');
 session_start();
 
 if(!empty($_SESSION['member'])){
-  header('Location: '.SITE_URL.'/member.php');
+  header('Location: '.SITE_URL.'member.php');
   exit;
 }
 
@@ -34,9 +34,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 }
 
 if(empty($errs)){
-  $session_regenerate_id(true);
+  session_regenerate_id(true);
   $_SESSION['member'] = $member;
-  header('Location: '.SITE_URL.'member.php');
+  header('Location: '.SITE_URL.'/member.php');
   exit;
 }
 

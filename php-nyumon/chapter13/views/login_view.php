@@ -10,7 +10,7 @@
       <p>メールアドレス：<input type="text" name="email"><?php echo html_escape($errs['email']); ?></p>
       <p>パスワード：<input type="password" name="password"><?php echo html_escape($errs['password']); ?></p>
       <p><input type="submit" value="ログイン"></p>
-      <p><a href="sugnup.php">新規投稿</a></p>
+      <p><a href="signup.php">新規登録</a></p>
     </form>
   </body>
 </html>

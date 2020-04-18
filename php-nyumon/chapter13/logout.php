@@ -1,5 +1,4 @@
 <?php
-
 require_once('config.php');
 session_start();
 
@@ -12,6 +11,6 @@ if(isset($_COOKIE[$session_name]) === TRUE){
 
 session_destroy();
 
-header('Location: ' . SITE_URL . 'Login.php');
+header('Location: '.SITE_URL.'/login.php');
 
 ?>
