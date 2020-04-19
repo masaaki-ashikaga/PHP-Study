@@ -11,5 +11,6 @@
       <p>パスワード：<input type="password" name="password"><?php echo $errs['password']; ?></p>
       <p><input type="submit" value="登録する"></p>
     </form>
+    <a href="login.php">登録済みのかたはこちら</a>
   </body>
 </html>

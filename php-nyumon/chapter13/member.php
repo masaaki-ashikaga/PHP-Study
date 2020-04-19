@@ -6,6 +6,7 @@ require_once('./helpers/extra_helper.php');
 
 session_start();
 
+
 if(empty($_SESSION['member'])){
   header('Location: ' . SITE_URL . 'login.php');
   exit;

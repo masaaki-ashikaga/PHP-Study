@@ -17,7 +17,7 @@ function get_db_connect(){
 function email_exists($dbh, $email){
   $sql = "SELECT COUNT(id) FROM members where email = :email";
   $stmt = $dbh->prepare($sql);
-  $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+  $stmt->bindValue(':email', $email, PDO::PARAM_STR);   // :emailを$emailに置き換える。 18行目がwhere email = $emailになる。
   $stmt->execute();
   $count = $stmt->fetch(PDO::FETCH_ASSOC);
   if($count['COUNT(id)'] > 0){
