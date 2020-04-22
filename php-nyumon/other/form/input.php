@@ -25,11 +25,17 @@ if(!empty($_POST['btn_submit'])){
   $pageFlag = 2;
 }
 ?>
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <title>フォーム</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
   </head>
   <body>
     <?php if($pageFlag === 0): ?>
@@ -48,40 +54,64 @@ if(!empty($_POST['btn_submit'])){
           <?php endforeach; ?>
         </ul>
           <?php endif; ?>
-      <form method="POST" action="input.php">
-        氏名
-        <input type="text" name="your_name" value="<?php if(isset($_POST['your_name'])){ echo h($_POST['your_name']); } ?>">
-        <br>
-        メールアドレス
-        <input type="email" name="email" value="<?php if(isset($_POST['email'])){ echo h($_POST['email']);} ?>">
-        <br>
-        ホームページ
-        <input type="url" name="url" value="<?php if(isset($_POST['url'])){ echo h($_POST['url']);} ?>">
-        <br>
-        性別
-        <input type="radio" name="gender" value="0">男性
-        <input type="radio" name="gender" value="1">女性
-        <br>
-        年齢
-        <select name="age">
-          <option value="">選択して下さい。</option>
-          <option value="1">〜19歳</option>
-          <option value="2">20歳〜29歳</option>
-          <option value="3">30歳〜39歳</option>
-          <option value="4">40歳〜49歳</option>
-          <option value="5">50歳〜59歳</option>
-          <option value="6">60歳〜</option>
-        </select>
-        <br>
-        お問い合わせ内容
-        <textarea name="contact" value="<?php if(isset($_POST['contact'])){ echo h($_POST['contact']);} ?>"></textarea>
-        <br>
-        注意事項のチェック
-        <input type="checkbox" name="caution" value="1">注意事項のチェックする。
-        <br>
-        <input type="submit" name="btn_confirm" value="確認する">
-        <input type="hidden" name="csrf" value="<?php echo $token; ?>">
-      </form>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <form method="POST" action="input.php">
+              <div class="form-group">
+                <label for="your_name">氏名</label>
+                <input type="text" class="form-control" name="your_name" value="<?php if(isset($_POST['your_name'])){ echo h($_POST['your_name']); } ?>" required><br>
+              </div>
+            
+
+          <div class="form-group">
+            <label for="email">メールアドレス</label>
+            <input type="email" class="form-control" name="email" value="<?php if(isset($_POST['email'])){ echo h($_POST['email']);} ?>"><br>
+          </div>
+          
+          <div class="form-group">
+            <label for="url">ホームページ</label>
+            <input type="url" class="form-control" name="url" value="<?php if(isset($_POST['url'])){ echo h($_POST['url']);} ?>"><br>
+          </div>
+
+          <div class="form-check form-check-inline">
+            性別
+            <input class="form-check-input" type="radio" name="gender" id="male" value="0"><label class="form-check-input" for="male">男性</label>
+            <input type="radio" class="form-check-input" name="gender" id="female" value="1">
+            <label class="form-check-input" for="female">女性</label>
+          </div>
+
+            <br>
+            <div class="form-group">
+              <label for="age">年齢</label>
+              <select class="form-control" name="age">
+                <option value="">選択して下さい。</option>
+                <option value="1">〜19歳</option>
+                <option value="2">20歳〜29歳</option>
+                <option value="3">30歳〜39歳</option>
+                <option value="4">40歳〜49歳</option>
+                <option value="5">50歳〜59歳</option>
+                <option value="6">60歳〜</option>
+              </select>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="contact">お問い合わせ内容</label>
+              <textarea class="form-control" name="contact" value="<?php if(isset($_POST['contact'])){ echo h($_POST['contact']);} ?>"></textarea>
+            </div>
+            <br>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" name="caution" value="1">
+              <label for="caution">注意事項に同意する。</label>
+            </div>
+            <br>
+            <input class="btn btn-info" type="submit" name="btn_confirm" value="確認する">
+            <input type="hidden" name="csrf" value="<?php echo $token; ?>">
+          </form>
+          </div>
+        </div>
+      </div>
     <?php endif; ?>
 
 
@@ -132,11 +162,21 @@ if(!empty($_POST['btn_submit'])){
 
     <?php if($pageFlag === 2): ?>
       <?php if($_POST['csrf'] === $_SESSION['csrfToken']): ?>
+      <?php 
+      require '../mainte/insert.php';
+      insertContact($_POST);
+      ?>
+        
         <p>送信が完了しました。</p>
         <?php unset($_SESSION['csrfToken']); ?>
       <?php endif; ?>
     <?php endif; ?>
 
 
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 </html>
