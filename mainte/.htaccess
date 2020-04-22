@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "IDとパスワードを入力してください。"
+AuthUserFile /Applications/MAMP/htdocs/code-creater/php-nyumon/other/mainte/.htpasswd
+require valid-user
